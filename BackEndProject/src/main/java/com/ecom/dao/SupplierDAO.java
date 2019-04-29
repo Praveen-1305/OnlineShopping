@@ -1,0 +1,16 @@
+package com.ecom.dao;
+
+import java.util.List;
+
+import com.ecom.TableStruct.Supplier;
+
+public interface SupplierDAO {
+
+	public boolean addSupplier(Supplier supplier);
+	public Supplier getSupplier(int supplierId);
+	public boolean deleteSupplier(Supplier supplier);
+	public boolean updateSupplier(Supplier supplier);
+	public List<Supplier> getSupplier();
+	
+
+}
