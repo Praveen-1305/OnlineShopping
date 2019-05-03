@@ -18,6 +18,7 @@ import com.ecom.TableStruct.Cart;
 import com.ecom.TableStruct.Category;
 import com.ecom.TableStruct.Product;
 import com.ecom.TableStruct.Supplier;
+import com.ecom.TableStruct.User;
 import com.ecom.dao.CartDAO;
 import com.ecom.dao.CartDAOImpl;
 import com.ecom.dao.CategoryDAO;
@@ -26,6 +27,8 @@ import com.ecom.dao.ProductDAO;
 import com.ecom.dao.ProductDAOImpl;
 import com.ecom.dao.SupplierDAO;
 import com.ecom.dao.SupplierDAOImpl;
+import com.ecom.dao.UserDAO;
+import com.ecom.dao.UserDAOImpl;
 
 
 @Configuration
@@ -66,6 +69,7 @@ public SessionFactory getSessionFactory(DataSource dataSource) {
 	sessionBuilder.addAnnotatedClasses(Supplier.class);          
     sessionBuilder.addAnnotatedClasses(Product.class);
     sessionBuilder.addAnnotatedClasses(Cart.class);
+    sessionBuilder.addAnnotatedClasses(User.class);
     
 	return sessionBuilder.buildSessionFactory();
 }
@@ -108,5 +112,13 @@ public CartDAO getCartDAO()
 	return new CartDAOImpl();
 
 }
+@Bean(name="userDAO")
+public UserDAO getUserDAO()
+{
+	System.out.println("----User DAO Implementation---");
+	return new UserDAOImpl();
+
+}
+
 
 }
