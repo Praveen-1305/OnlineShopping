@@ -21,12 +21,12 @@ public class ProductTest {
 	{
 		@SuppressWarnings("resource")
 		AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext();
-		context.scan("com.niit");
+		context.scan("com.ecom");
 		context.refresh();
 		
 		productDAO=(ProductDAO)context.getBean("productDAO");
 	}
-	
+	@Ignore
 	@Test
 	public void addProductTest()
 	{
@@ -55,11 +55,11 @@ public class ProductTest {
 		Product product=productDAO.getProduct(2);
 		assertTrue("Problem in Deletion:",productDAO.deleteProduct(product));
 	}
-    
+	
 	@Test
 	public void updateProductTest()
 	{
-		Product product=productDAO.getProduct(1);
+		Product product=productDAO.getProduct(214);
 		product.setPrice(699);
 		product.setStock(9);
 		assertTrue("Problem in Updation",productDAO.updateProduct(product));
@@ -81,5 +81,6 @@ public class ProductTest {
 	}
 
 
-
 }
+
+

@@ -10,6 +10,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.ecom.TableStruct.Category;
 import com.ecom.TableStruct.Product;
 
 @Repository("productDAO")
@@ -33,7 +34,8 @@ public class ProductDAOImpl implements ProductDAO{
 		return false;
 		}
 	}
-
+	
+	@Transactional
 	@Override
 	public boolean deleteProduct(Product product) {
 		try
@@ -74,7 +76,7 @@ public class ProductDAOImpl implements ProductDAO{
 		return product;
 	}
 
-
+	@Transactional
 	@Override
 	public List<Product> listProducts() {
 		Session session=sessionFactory.openSession();
@@ -85,5 +87,6 @@ public class ProductDAOImpl implements ProductDAO{
 		
 
 	}
+
 
 }
