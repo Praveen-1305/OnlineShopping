@@ -1,9 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-    <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-    <%@ page isELIgnored="false"%>
-    
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page isELIgnored="false"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,85 +11,41 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<title>ProductDescription</title>
+<title>Description</title>
+<style>
+.side{
+float:right;
+padding-right:150px;
+}
+
+</style>
+
 </head>
 <body>
-<%--<%@include file="Header.jsp"%>--%>
+<%@ include file="Home_1.jsp" %>
+<form action="<c:url value="/MoveCart"/>" method="post" enctype="multipart/form-data">
+<div class="container">
+<div class="Show">
 
-
-<h3 align="center">Product Page</h3>
-
-<div class="container-fluid">
-	   <table class="table table-bordered">
-
-	<tr>
-		<td rowspan="7">
-		<img src="<c:url value="/resources/images/${ProductInfo.productId}.jpg"/>" width="200" height="200"/>
-		</td>
-		<td>Product ID</td>
-		<td>${ProductInfo.productId}</td>
-	</tr>
-	<tr>
-		<td>Price</td>
-		<td>${ProductInfo.price}</td>
-	</tr>
-	<tr>
-		<td>Product Name</td>
-		<td>${ProductInfo.productName}</td>
-	</tr>
-	<tr>
-		<td>Category ID</td>
-		<td>${categoryName}</td>
-	</tr>
-	<tr>
-		<td>Supplier ID</td>
-		<td>${ProductInfo.supplierId}</td>
-	</tr>
-	<tr>
-		<td>Product Description</td>
-		<td>${ProductInfo.prodDesc}</td>
-	</tr>
-	
-	
-        <c:if test="${not empty SuccessMessage}">
-       <td><form action="<c:url value="/addToCart/${ProductInfo.productId }"/>" method="post">
-        </c:if>
-        <c:if test="${empty SuccessMessage}">
-        <td><form action="<c:url value="/login"/>">
-        
-        
-        </c:if>
-        
-	
-    
-	<tr>
-		<td>Quantity</td>
-		<td>
-		<select name="quantity">                    
-			<option value="1">1</option>
-			<option value="2">2</option>
-			<option value="3">3</option>
-			<option value="4">4</option>
-			<option value="5">5</option>
-		</select>
-		</td>
-	
-		<td><c:if test="${empty SuccessMessage}">
-	         
-	  <button class="btn btn-primary">login to add to cart
-	   
-	     </c:if>
-    
-        
-		<c:if test="${not empty SuccessMessage}">
-		<input type="submit" value="AddToCart" class="btn btn-success"></c:if>
-	    </td>
+<tr>
+ <td>
+<img src ="<c:url value="/resources/images/${pro.productId}.jpg" />" width="500" height="500" />
+</td>
 </tr>
-</form>
-</table>
+<div class=side >
+<p style="font-size:25px;font-family:TimesNewRoman;font-style:italic;" >${pro.productName}</p>
+<p style="font-size:23px;font-family:TimesNewRoman;font-weight:Regular;" >${pro.prodDesc}</p>
+<p style="font-size:20px;font-family:TimesNewRoman;font-weight:Bold;" >&#8377; ${pro.price}</p>
+<%-- <p style="font-size:18px;font-family:Arial;font-color:Red;" >${pro.stock}</p>--%>
+<br>
+<button class="btn btn-success" style="font-size:14px"><i class="fa fa-shopping-cart">Add to Cart</i></button>
 </div>
 
-<%--<%@ include file="Footer.jsp" %>--%>
+</div>
+</div>
+</form>
+
 </body>
 </html>

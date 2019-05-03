@@ -6,28 +6,43 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+
 <title>Supplier</title>
 </head>
 <body>
-<h3 align="center">Supplier Page</h3>
+<%@include file="Admin.jsp"%>
+<h2 align="center">Supplier Page</h2>
 <form action="InsertSupplier" method="POST" >
+<div class="container">
+	<div class="row" style="padding-left:275px">
+	<div class="col-sm-10 col-md-6 col-lg-4">
+	<div class="box">
 <table>
     <tr>
         <td>SupplierName:</td>
-        <td><input id="Name" name="Name"/></td>
+        <td><input id="Name" class="form-control" name="Name"/></td>
     </tr>
     <tr>
         <td>SupplierAddress:</td>
-        <td><input id="Addr" name="Addr"/></td>
+        <td><input id="Addr" class="form-control" name="Addr"/></td>
     </tr>
     <tr>
-        <td colspan="2">
-        <input type="Submit" value="Add"></td>
-    </tr>
-   </table>
-   
- <table border=2>
-	   <tr>
+        </table><br>
+		<center>
+		<button type="submit" class="btn btn-success">Update</button>
+		<button type="reset" class="btn btn-danger">Reset</button>
+	  </center>
+	  </div>
+	</div>
+</div>
+</div><br>
+ <table border=2 width=100%>	   
+		   <tr>
 		<th>Supplier ID</th>
 		<th>Supplier Name</th>
 		<th>Supplier Address</th>

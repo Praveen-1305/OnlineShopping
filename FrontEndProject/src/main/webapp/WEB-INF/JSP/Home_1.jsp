@@ -12,35 +12,40 @@
 
 
 <style>
-.background
-{
-   height: 800px;
-   background-image: url("resources/images/.jpg");
-   background-repeat: no-repeat;
-   background-size: 100%;
-}
-
 .container-fluid
 {
-	font-size:17px;
+	font-size:15px;
 }
+.navbar-brand
+{
+font-family: "Algerian";
+font-size:22px;
+}
+
+<%--.background
+{
+   height: 800px;
+   background-image:url("resources/images/.jpg");
+   background-repeat: no-repeat;
+   background-size: 100%;
+}--%>
 
 </style>
 
 </head>
 <body>
 <div class="background">
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">MobileDesk</a>
+      <a class="navbar-brand" href="#">MobileWell</a>
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Home</a></li>
-      <li><a href="Category">Category Management</a></li>
-      <li><a href="product">Product Management</a></li>
-      <li><a href="Supplier">Supplier Management</a></li>
-     
+      <li><a href="Category">ManageCategory</a></li>
+      <li><a href="Iproduct">ManageProduct</a></li>
+      <li><a href="Supplier">ManageSupplier</a></li>
+      <li><a href="Dproduct">Product</a></li>     
     </ul>
      <ul class="nav navbar-nav navbar-right">
       
@@ -49,6 +54,6 @@
     
   </div>
 </nav>
-
+</div>
 </body>
 </html>

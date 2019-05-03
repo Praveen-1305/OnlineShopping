@@ -5,33 +5,49 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+
 <title>UpdateCategory</title>
 </head>
 <body>
-<h3 align="center">UpdateCategory</h3>
+<%@include file="Admin.jsp"%>
+<h2 align="center">UpdateCategory</h2>
 <form action="<c:url value="/UpdateCategory"/>" method="POST" >
+<div class="container">
+	<div class="row" style="padding-left:275px">
+	<div class="col-sm-10 col-md-6 col-lg-4">
+	<div class="box">
+
 <table>
 <tr>
         <td>CategoryID:</td>
-        <td><input id="id" name="Id" value="${categoryInfo.categoryId}"/></td>
+        <td><input id="id" class="form-control" name="Id" value="${categoryInfo.categoryId}"/></td>
     </tr>
     
     <tr>
         <td>CategoryName:</td>
-        <td><input id="Name" name="Name" value="${categoryInfo.categoryName}"/></td>
+        <td><input id="Name" class="form-control" name="Name" value="${categoryInfo.categoryName}"/></td>
     </tr>
     <tr>
         <td>CategoryDesc:</td>
-        <td><input id="Desc" name="Desc" value="${categoryInfo.categoryDesc}"/></td>
+        <td><input id="Desc" class="form-control" name="Desc" value="${categoryInfo.categoryDesc}"/></td>
     </tr>
     <tr>
-        <td colspan="2">
-        <input type="Submit" value="Update">
-        <input type="submit" value="Reset"></td>
-    </tr>
-   </table>
-   <table border=2>
-	   <tr>
+        </table><br>
+		<center>
+		<button type="submit" class="btn btn-success">Update</button>
+		<button type="reset" class="btn btn-danger">Reset</button>
+	  </center>
+	  </div>
+	</div>
+</div>
+</div><br>
+ <table border=2 width=100%>	  
+  <tr>
 		<td>Category ID</td>
 		<td>Category Name</td>
 		<td>Category Desc</td>
@@ -48,6 +64,7 @@
 		</tr>
 	</c:forEach>
 
-</table></form>
+</table>
+</form>
 </body>
 </html>

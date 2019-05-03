@@ -3,13 +3,11 @@ package com.ecom;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.util.LinkedHashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,49 +16,90 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.ecom.TableStruct.Category;
 import com.ecom.TableStruct.Product;
+import com.ecom.TableStruct.Supplier;
 import com.ecom.dao.CategoryDAO;
 import com.ecom.dao.ProductDAO;
+import com.ecom.dao.SupplierDAO;
 
 @Controller
-public class ProductControll {
+public class ProductControll
+{
 	
 	@Autowired
 	CategoryDAO categoryDAO;
 	
 	@Autowired
 	ProductDAO productDAO;
-
-	private Object path;
 	
-	@RequestMapping("/Iproduct")
-	public String showProductPage(Model m)
+	@Autowired
+	SupplierDAO supplierDAO;
+	
+	@RequestMapping(value="/Dproduct")
+	public String DisplayProduct(Model m) {
+		
+		List<Product> Prolist = productDAO.listProducts();
+		m.addAttribute("listPro", Prolist);
+		return "ProductDisplay";
+	}
+
+	
+	@RequestMapping(value="/DescProduct/{productId}",method=RequestMethod.GET)
+	public String ProductDescription(@PathVariable("productId") int proid, Model m)
+		{
+         Product product=productDAO.getProduct(proid);
+		 List<Product> Prolist = productDAO.listProducts();
+		 m.addAttribute("listPro", Prolist);
+		 m.addAttribute("pro",product);
+		return"ProductDesc";
+		}
+
+	
+	@RequestMapping(value="/Iproduct")
+	public String showProduct(Model m) {
+		
+		List<Product> Prolist = productDAO.listProducts();
+		m.addAttribute("listPro", Prolist);
+		List<Category> listcat=categoryDAO.getCategories();
+		m.addAttribute("listCategories",listcat);
+		List<Supplier> listsup = supplierDAO.getSupplier();
+		m.addAttribute("listSupplier", listsup);
+
+		for (Product pro :Prolist) {
+			System.out.println(pro.getProductName() + ",");
+		}
+		return "InsertProduct";
+	}
+
+	@RequestMapping(value = "/AddProduct", method = RequestMethod.POST)
+	public String InsertProduct(@RequestParam("proname") String proname, @RequestParam("prodesc") String prodesc,
+			@RequestParam("proprice") int proprice,@RequestParam("prostock") int prostock,
+			@RequestParam("categoryId") int catid,@RequestParam("supplierId") int supid,
+			@RequestParam("pImage") MultipartFile pImage, Model m) 
 	{
 		Product product=new Product();
+		product.setProductName(proname);
+		product.setProdDesc(prodesc);
+		product.setPrice(proprice);
+		product.setStock(prostock);
+		product.setCategoryId(catid);
+		product.setSupplierId(supid);
+        productDAO.addProduct(product);
+        
+        
 		m.addAttribute(product);
-		//m.addAttribute("catlist",this.listCategories());
-		return "InsertProduct";
-		                                                                                                                                                  
-		}
-	@RequestMapping(value="/AddProduct",method=RequestMethod.POST)
-	public String addProduct(@ModelAttribute("product")Product product,Model m,@RequestParam("pimage") MultipartFile filedet)
-	{
-		Product product1=new Product();
-		m.addAttribute(product1);
-		productDAO.addProduct(product);
-		
-		//===> Image Uploading
-		String imagePath="V:\\NIIT\\FinalProject\\BookFrontend\\src\\main\\webapp\\resources\\images";
+    	
+		String imagePath="F:/Program Files/eclipse workspace/FrontEndProject/src/main/webapp/resources/images/";
 		imagePath=imagePath+String.valueOf(product.getProductId())+".jpg";
 	    File image=new File(imagePath);
 		
-		if(!filedet.isEmpty())
+		if(!pImage.isEmpty())
 		{
 
 			try {
-				byte[] fileBuffer=filedet.getBytes();	
+				byte[] buffer=pImage.getBytes();	
 				FileOutputStream fos=new FileOutputStream(image);
 				BufferedOutputStream bs=new BufferedOutputStream(fos);
-				bs.write(fileBuffer);
+				bs.write(buffer);
 				bs.close();
 
 			}
@@ -76,45 +115,115 @@ public class ProductControll {
 		{
 			System.out.println("Problem Occured in File Uploading");
 		}
-		
-		//==>End of Image Uploading
-		
-		
-		m.addAttribute("catlist",this.listCategories());
-		return "InsertProduct";	
+
+        List<Product> Prolist = productDAO.listProducts();
+		m.addAttribute("listPro", Prolist);
+		List<Category> listcat=categoryDAO.getCategories();
+		m.addAttribute("listCategories",listcat);
+		List<Supplier> listsup = supplierDAO.getSupplier();
+		m.addAttribute("listSupplier", listsup);
+
+		return "InsertProduct";
 	}
-	
-	
-	@RequestMapping(value="/product",method=RequestMethod.GET)
-	public String showProductsPage(Model m)
-	{
-		List<Product> listProducts=productDAO.listProducts();
-		m.addAttribute("listProducts",listProducts);
-		return "Product";
-	}
-	
-	@RequestMapping(value="/productDesc/{productId}",method=RequestMethod.GET)
-	public String showProductDesc(@PathVariable("productId")int productId,Model m)
+
+	@RequestMapping(value="/deleteProduct/{productId}")
+	public String deleteProduct(@PathVariable("productId") int productId,Model m)
 	{
 		Product product=productDAO.getProduct(productId);
-		String categoryName=categoryDAO.getCategory(product.getCategoryId()).getCategoryName();
-		m.addAttribute("ProductInfo",product);
-		m.addAttribute("categoryName",categoryName);
-		return "ProductDesc";
+		
+		productDAO.deleteProduct(product);
+		
+		String path="E:/eclipse-workspace2/frontend/src/main/webapp/resources/images/";
+		path=path+String.valueOf(product.getProductId())+".jpg";
+	    File image=new File(path);
+		image.delete();
+		
+		 List<Product> Prolist = productDAO.listProducts();
+			m.addAttribute("listPro", Prolist);
+			List<Category> listcat=categoryDAO.getCategories();
+			m.addAttribute("listCategories",listcat);
+			List<Supplier> listsup = supplierDAO.getSupplier();
+			m.addAttribute("listSupplier", listsup);
+
+			return "InsertProduct";
 	}
 
-
-	public LinkedHashMap<Integer,String> listCategories()
+	@RequestMapping(value="/updateProduct/{productId}")
+	public String updateProduct(@PathVariable("productId") int productId,Model m)
 	{
-		List<Category> listCategories=categoryDAO.getCategories();
-		LinkedHashMap<Integer,String> catlist=new LinkedHashMap<Integer,String>();
-		for(Category category:listCategories)
-		{
-			catlist.put(category.getCategoryId(),category.getCategoryName());
-		}
-		return catlist;
+		Product product=productDAO.getProduct(productId);
+		
+		
+		List<Product> Prolist = productDAO.listProducts();
+		m.addAttribute("listPro", Prolist);
+		List<Category> listcat=categoryDAO.getCategories();
+		m.addAttribute("listCategories",listcat);
+		List<Supplier> listsup = supplierDAO.getSupplier();
+		m.addAttribute("listSupplier", listsup);
+		m.addAttribute("productInfo",product);
+
+		return "UpdateProduct";
 	}
+	
+	@RequestMapping(value="/UpdateProductDB",method=RequestMethod.POST)
+	public String updateProductDatabase(@RequestParam("productId") int proid,@RequestParam("proname") String proname,
+			@RequestParam("prodesc") String prodesc,@RequestParam("proprice") int proprice,@RequestParam("prostock") int prostock,
+			@RequestParam("categoryId") int catid,@RequestParam("supplierId") int supid,
+			@RequestParam("pImage") MultipartFile pImage, Model m)
+	{
+		Product product=productDAO.getProduct(proid);
+		product.setProductName(proname);
+		product.setProdDesc(prodesc);
+		product.setPrice(proprice);
+		product.setStock(prostock);
+		product.setCategoryId(catid);
+		product.setSupplierId(supid);
+		productDAO.updateProduct(product);
+		
+		String imagePath="F:/Program Files/eclipse workspace/FrontEndProject/src/main/webapp/resources/images/";
+		imagePath=imagePath+String.valueOf(product.getProductId())+".jpg";
+	    File oldimage=new File(imagePath);
+		oldimage.delete();
+	    
+		File image=new File(imagePath);
+		if(!pImage.isEmpty())
+		{
+
+			try {
+				byte[] buffer=pImage.getBytes();	
+				FileOutputStream fos=new FileOutputStream(image);
+				BufferedOutputStream bs=new BufferedOutputStream(fos);
+				bs.write(buffer);
+				bs.close();
+
+			}
+			
+			catch (Exception e)
+			{
+				System.out.println("Exception Arised:"+e);
+				e.printStackTrace();
+			}
+			
+		}
+		else
+		{
+			System.out.println("Problem Occured in File Uploading");
+		}
+
+		
+		List<Product> Prolist = productDAO.listProducts();
+		m.addAttribute("listPro", Prolist);
+		List<Category> listcat=categoryDAO.getCategories();
+		m.addAttribute("listCategories",listcat);
+		List<Supplier> listsup = supplierDAO.getSupplier();
+		m.addAttribute("listSupplier", listsup);
+
+		return "InsertProduct";
+	}
+	
+}
+
+
+
 
 	
-
-}

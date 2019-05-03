@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
  
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page isELIgnored="false"%>
  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -24,21 +25,32 @@
 		
 .container-fluid
 {
-	font-size:17px;
+	
+  background-color:#232F3E;
+  color:#ffffff;
+  font-size:15px;
+  font-color:#ffffff;
+  
+  }
+  .navbar-brand
+{
+font-family: "Algerian";
+font-size:22px;
 }
-
+  
+   
 </style>
 </head>
 <body>
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">MobileDesk</a>
+      <a class="navbar-brand" href="#">MobileWell</a>
     </div>
     <ui class="nav navbar-nav">
     <li><a href="aboutus">About Us</a></li>
       <li><a href="contactUs">Contact Us</a></li>
-      <li><a href="productPage">Product</a></li>
+      <li><a href="product">Product</a></li>
     </ui>  
     </ul>
      <ul class="nav navbar-nav navbar-right">
@@ -57,7 +69,5 @@
        
         </div>
 </nav>
- 
-    
-</body>
+ </body>
 </html>

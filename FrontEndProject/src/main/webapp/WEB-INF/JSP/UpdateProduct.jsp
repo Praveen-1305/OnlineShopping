@@ -13,18 +13,17 @@
 <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
 
 <title>ProductInsertion</title>	
-
 </head>
 <body>
 <%@include file="Admin.jsp"%>
 
-<h3 align="center">Product Page</h3>
-<form action="<c:url value="/AddProduct"/>" method="post" enctype="multipart/form-data">
+<h3 align="center">UpdateProduct</h3>
+<form action="<c:url value="/UpdateProductDB"/>" method="post" enctype="multipart/form-data">
 	<div class="container">
 	<div class="row" style="padding-left:210px">
 	<div class="col-sm-10 col-md-6 col-lg-4">
 	<div class="box">
-		<table class=box>
+		<table>
 		<tr>
 		<td>Select Category: </td>
 		<td>
@@ -45,41 +44,44 @@
       </select>
 		</td>
 		</tr>
-        <tr>
+		<tr>
+        <td>Product ID:</td>
+        <td><input type="text" class="form-control" name="productId" value="${productInfo.productId}" Required/></td>
+		</tr>
+		<tr>
         <td>Product Name:</td>
-        <td><input type="text" class="form-control" name="proname" Required/></td>
+        <td><input type="text" class="form-control" name="proname" value="${productInfo.productName}" Required/></td>
 		</tr>
 		<tr>
 		<td>Product Description:</td> 
-		<td><input type="text" class="form-control" name="prodesc" Required/>
+		<td><input type="text" class="form-control" name="prodesc" value="${productInfo.prodDesc}" Required/>
 		</td>
 		</tr>
 		<tr>
 		<td>Product Stock: </td>
-		<td><input type="text" class="form-control" name="prostock" Required/></td>
+		<td><input type="text" class="form-control" name="prostock" value="${productInfo.stock}" Required/></td>
 		</tr>
 		<tr>
 		<td>Product Price:</td> 
-		<td><input type="text" class="form-control" name="proprice" Required/></td>
+		<td><input type="text" class="form-control" name="proprice" value="${productInfo.price}" Required/></td>
 		</tr>
 								
 		<tr>
 		<td>Product Image:</td>
-		<td><input type="file"  class="form-control" accept="/resources/images/*" name="pImage" />
+		<td><input type="file"  accept="/resources/images/*" name="pImage" enctype="multipart/form-data"/>
 		</td>
 		</tr>
 		</table><br>
 		<center>
-		<button type="submit" class="btn btn-success">Add</button>
+		<button type="submit" class="btn btn-success">Update</button>
 		<button type="reset" class="btn btn-danger">Reset</button>
 	  </center>
 	  </div>
 	</div>
 </div>
-</div>
-<br>	
+</div><br>	
 <table border=2 width=100%>
-	<tr>
+	  <center> <tr>
 		<th>Product ID</th>
 		<th>Product Name</th>
 		<th>Category ID</th>
@@ -98,12 +100,12 @@
 			<td>${pro.supplierId}</td>
 			<td>${pro.price}</td>
 			<td>${pro.stock}</td>
-			<td><center><img src ="<c:url value="/resources/images/${pro.productId}.jpg" />" width="80" height="70" /></td></center>
+			<td><center><img src ="<c:url value="/resources/images/${pro.productId}.jpg" />" width="80" height="70" /></center></td>
 			<td>${pro.prodDesc}</td>
 			<td><a href="<c:url value="/updateProduct/${pro.productId}"/>">Update</a>/
 				<a href="<c:url value="/deleteProduct/${pro.productId}"/>">Delete</a>
 			</td>
-		</tr>
+		</tr></center>
 	</c:forEach>
 	</table>
 	</form>

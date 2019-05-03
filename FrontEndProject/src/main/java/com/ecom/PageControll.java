@@ -10,8 +10,14 @@ public class PageControll {
 	{
 		return "index";
 	}
+	@RequestMapping("/FrontEndProject")
+	public String show()
+	{
+		return "index";
+	}
 	
-	@RequestMapping("/Home")
+	
+	/*@RequestMapping("/Home")
 	public String showHomePage()
 	{
 		return "Home";
@@ -33,6 +39,6 @@ public class PageControll {
 	public String showFooterPage()
 	{
 		return "Footer";
-	}
+	}*/
 	
 }

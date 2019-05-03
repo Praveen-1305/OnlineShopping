@@ -3,14 +3,26 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
    
    
-   <html>
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+
 <title>Category</title>
 </head>
 <body>
-<h3 align="center">Category Page</h3>
+<%@include file="Admin.jsp"%>
+<h2 align="center">Category Page</h2>
 <form action="InsertCategory" method="POST" >
+<div class="container">
+	<div class="row" style="padding-left:275px">
+	<div class="col-sm-10 col-md-6 col-lg-4">
+	<div class="box">
+	
 <table>
 <!-- <tr>
         <td>CategoryID:</td>
@@ -19,19 +31,23 @@
  -->    
     <tr>
         <td>CategoryName:</td>
-        <td><input id="Name" name="Name"/></td>
+        <td><input class="form-control" id="Name" name="Name"/></td>
     </tr>
     <tr>
         <td>CategoryDesc:</td>
-        <td><input id="Desc" name="Desc"/></td>
+        <td><input class="form-control" id="Desc" name="Desc"/></td>
     </tr>
     <tr>
-        <td colspan="2">
-        <input type="Submit" value="Add"></td>
-    </tr>
-   </table>
-   
- <table border=2>
+        </table><br>
+		<center>
+		<button type="submit" class="btn btn-success">Add</button>
+		<button type="reset" class="btn btn-danger">Reset</button>
+	  </center>
+	  </div>
+	</div>
+</div>
+</div><br>
+ <table border=2 width=100%>
 	   <tr>
 		<th>Category ID</th>
 		<th>Category Name</th>

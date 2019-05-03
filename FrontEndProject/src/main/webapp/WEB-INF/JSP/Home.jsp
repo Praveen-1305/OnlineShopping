@@ -12,7 +12,7 @@
 
 <title>Home</title>
 </head>
-<body>
+<body style="background-color:black">
 <%@include file="Header.jsp"%>
 
 <div>
@@ -27,27 +27,27 @@
       <li data-target="#myCarousel" data-slide-to="4"></li>
     </ol>
 
-     Wrapper for slides 
+     Mobile for slides 
     <div class="carousel-inner">
       <div class="item active">
-           <img src="resources/images/Iphone.jpg" width="100%"/>   
+           <img src="<c:url value="/resources/images/Iphone.jpg"/>" height="100" width="100%"/>   
       </div>
 
       <div class="item">
-            <img src="resources/images/Nokia.jpg" width="100%"/>
+            <img src="<c:url value="/resources/images/Nokia.jpg"/>" height="100" width="100%"/>
       </div>
      
       <div class="item">
-           <img src="resources/images/Samsung.jpg" width="100%"/>
+           <img src="<c:url value="/resources/images/Samsung.jpg"/>" height="100" width="100%"/>
               </div>
       
       <div class="item">
-           <img src="resources/images/HTC.jpg" width="100%"/>      
+           <img src="<c:url value="/resources/images/HTC.jpg"/>" height="100" width="100%"/>      
            
            </div>
       
       <div class="item">
-            <img src="resources/images/BB.jpg" width="100%"/>
+            <img src="<c:url value="/resources/images/BB.jpg"/>" height="100" width="100%"/>
         </div>
       
     </div>
