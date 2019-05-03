@@ -17,7 +17,7 @@
 <body>
 <%@include file="Admin.jsp"%>
 <h2 align="center">Supplier Page</h2>
-<form action="InsertSupplier" method="POST" >
+<form action="<c:url value="/InsertSupplier"/>" method="POST" >
 <div class="container">
 	<div class="row" style="padding-left:275px">
 	<div class="col-sm-10 col-md-6 col-lg-4">
