@@ -15,8 +15,10 @@
 
 <title>Cart</title>
 </head>
+
 <body>
-<form action="<c:url value="/DispCart"/>" method="post" enctype="multipart/form-data">
+	<%@ include file="Header.jsp"%>
+<%-- <form action="<c:url value="/DispCart"/>" method="post" enctype="multipart/form-data">
 	<div class="container">
 	<div class="col-sm-10 col-md-6 col-lg-4">
 	<div class="box">
@@ -24,7 +26,7 @@
 		<table class="table table-hover" width="100%">
 <c:forEach items="${cartList}" var="cart">
 
- <%--<form action="<c:url value="/updateCart/${cart.cartId}"/>" method="post">--%>
+ <form action="<c:url value="/updateCart/${cart.cartId}"/>" method="post">
  <tr> 
  <td><img src="<c:url value="/resources/images/${cart.productId}.jpg"/>" width="100" height="100"/></td>
 
@@ -56,9 +58,9 @@
 
 <div class="button">
 <tr>
-<%--  <td colspan="4">--%><a href= "<c:url value="/Continue"/>" class="btn btn-success">ContinueShopping</a>
+<%--<td colspan="4"><a href= "<c:url value="/Continue"/>" class="btn btn-success">ContinueShopping</a>
  
-<%--  <td colspan="4">--%><a href= "<c:url value="/ConfirmOrder"/>" class="btn btn-danger">ConfirmOrder</a>
+<%--<td colspan="4"><a href= "<c:url value="/ConfirmOrder"/>" class="btn btn-danger">ConfirmOrder</a>
 </tr>
 </div>  
 	
@@ -66,6 +68,36 @@
 	</div>	
 	</div>
 	</form>
+	--%>
+	
+
+Hello ${cart.username}
+<div class="container">
+<table class="table table-bordered" style="border-width:3px;border-color:black;">
+<tr style="background-color:black; color:white;">
+<td>Serial No</td>
+<td>Product Name</td>
+<td>Product Price</td>
+<td>Quantity</td>
+<td>Product Image</td>
+<td>Operation</td>
+</tr>
+<c:forEach items="${listCarts}" var="cart">
+<tr>
+<td></td>
+<td>${cart.productName}</td>
+<td>${cart.total}</td>
+<td>${cart.quantity}</td>
+<td><img src="<c:url value="/resources/images/${pro.productId}.jpg"/>" width="75px" height="75px"></td>
+<td>
+<a href="<c:url value="/updatecart/${pro.productId}"/>" class="btn btn-success btn-xs">REFRESH</a>
+<a href="<c:url value="/deletecart/${pro.productId}"/>" class="btn btn-danger btn-xs">DELETE</a>
+</td>
+</tr>
+</c:forEach>
+</table>
+</div>
+	
 
 </body>
 </html>

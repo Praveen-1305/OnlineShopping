@@ -68,7 +68,7 @@ public class UserControll {
 	
 
 	
-	@RequestMapping(value="/loginsuccess")
+	@RequestMapping(value="/login_success")
 	public String showMessage(@RequestParam(value="username")String name,@RequestParam(value="password")String password, 
 			HttpSession session,Model model) {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();

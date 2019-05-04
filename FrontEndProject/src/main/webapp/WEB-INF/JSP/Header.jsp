@@ -55,7 +55,7 @@ font-size:22px;
     
     <ul class="nav navbar-nav navbar-right">
  <c:if test="${not empty SuccessMessage}">
-   <li><a href="logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+   <li><a href="<c:url value="/perform_logout" />"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
  </c:if>    
 	</ul>
        

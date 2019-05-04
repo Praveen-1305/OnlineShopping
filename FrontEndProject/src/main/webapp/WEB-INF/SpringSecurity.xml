@@ -29,11 +29,11 @@
 
 </security:http>
 
-<beans:bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"></beans:bean>
+<!--<beans:bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"></beans:bean>-->
 
 <security:authentication-manager>
 	<security:authentication-provider>
-	<password-encoder hash="bcrypt"  />
+<!--<password-encoder ref="encoder"  />-->
 	<security:jdbc-user-service
 				data-source-ref="dataSource"
 				users-by-username-query="select username,password,enabled from User where username=?"
