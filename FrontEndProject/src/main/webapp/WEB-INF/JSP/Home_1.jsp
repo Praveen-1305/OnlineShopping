@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page isELIgnored="false"%>
+    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -21,14 +24,13 @@
 font-family: "Algerian";
 font-size:22px;
 }
-
-<%--.background
+.background
 {
-   height: 800px;
-   background-image:url("resources/images/.jpg");
+   height:auto;
+   background-image:url("resources/images/Admin.jpg");
    background-repeat: no-repeat;
    background-size: 100%;
-}--%>
+}
 
 </style>
 
@@ -41,15 +43,16 @@ font-size:22px;
       <a class="navbar-brand" href="#">MobileWell</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="Category">ManageCategory</a></li>
-      <li><a href="Iproduct">ManageProduct</a></li>
-      <li><a href="Supplier">ManageSupplier</a></li>
-      <li><a href="Dproduct">Product</a></li>     
+      <%--<li class="active"></li>--%>
+      <li><a href="<c:url value="/"/>">Home</a></li>
+      <li><a href="<c:url value="/Category"/>">ManageCategory</a></li>
+      <li><a href="<c:url value="/Iproduct"/>">ManageProduct</a></li>
+      <li><a href="<c:url value="/Supplier"/>">ManageSupplier</a></li>
+      <%--<li><a href="Dproduct">Product</a></li> --%>    
     </ul>
      <ul class="nav navbar-nav navbar-right">
       
-      <li><a href="logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+      <li><a href="<c:url value="/perform_logout" />"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
     </ul>
     
   </div>

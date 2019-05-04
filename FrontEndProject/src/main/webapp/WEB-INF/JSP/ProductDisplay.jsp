@@ -8,7 +8,7 @@
 <title>Products</title>
 </head>
 <body>
-<%@ include file="Home_1.jsp" %>
+<%@ include file="Header.jsp" %>
 <form action="<c:url value="/DisplayProduct"/>" method="post" enctype="multipart/form-data">
 <div class="container">
 <div class="firstRow">
@@ -40,5 +40,6 @@ Stock:${pro.stock}<br>
 </div>
 </div>
 </form>
+<%@ include file="Footer.jsp" %>
 </body>
 </html>

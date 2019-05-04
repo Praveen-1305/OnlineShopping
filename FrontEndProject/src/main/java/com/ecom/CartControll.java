@@ -17,17 +17,15 @@ import com.ecom.dao.ProductDAO;
 @Controller
 public class CartControll {
 	@Autowired
-	CartDAO cartDAO;
-	
-	@Autowired
 	ProductDAO productDAO;
-	
-	@RequestMapping(value="/MoveCart/{productId}",method=RequestMethod.POST)
-	public String addCart(@PathVariable("productId") int proid, Model m) {
-		
+	@Autowired
+	CartDAO cartDAO;
+
+	@RequestMapping(value = "/MoveCart/{productId}",method = RequestMethod.POST)
+	public String addCart(@PathVariable("productId") int proid,Model m) {
 		Product product=productDAO.getProduct(proid);
 		m.addAttribute("pro",product);
-		String username="praveen";
+		String username="World";
 		
 		Cart cart=new Cart();
 		cart.setProductId(proid);
@@ -44,12 +42,3 @@ public class CartControll {
 		return "Cart";
 	}
 }
-	
-	
-		
-	
-
-
-	
-
-

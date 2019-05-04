@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 <style>
@@ -30,8 +30,6 @@
 font-family: "Algerian";
 font-size:22px;
 }
-  
-   
 </style>
 </head>
 <body>
@@ -55,6 +53,7 @@ font-size:22px;
     
     <ul class="nav navbar-nav navbar-right">
  <c:if test="${not empty SuccessMessage}">
+  <li><a href="<c:url value="#" />"><i class="fa fa-shopping-cart" >Cart()</i></a></li>
    <li><a href="<c:url value="/perform_logout" />"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
  </c:if>    
 	</ul>

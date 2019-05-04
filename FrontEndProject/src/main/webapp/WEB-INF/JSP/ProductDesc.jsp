@@ -24,7 +24,7 @@ padding-right:150px;
 
 </head>
 <body>
-<%@ include file="Home_1.jsp" %>
+<%@ include file="Header.jsp" %>
 <form action="<c:url value="/MoveCart/${pro.productId}"/>" method="post" enctype="multipart/form-data">
 <div class="container">
 <div class="Show">
@@ -46,6 +46,6 @@ padding-right:150px;
 </div>
 </div>
 </form>
-
+<%@include file="Footer.jsp"%>
 </body>
 </html>

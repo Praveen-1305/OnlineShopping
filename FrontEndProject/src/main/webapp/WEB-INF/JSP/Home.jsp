@@ -30,19 +30,19 @@
      Mobile for slides 
     <div class="carousel-inner">
       <div class="item active">
-           <img src="<c:url value="/resources/images/Iphone.jpg"/>" height="100" width="100%"/>   
+           <img src="<c:url value="/resources/images/Iphone.jpg"/>" height="80" width="100%"/>   
       </div>
 
       <div class="item">
-            <img src="<c:url value="/resources/images/Nokia.jpg"/>" height="100" width="100%"/>
+            <img src="<c:url value="/resources/images/Nokia.jpg"/>" height="80" width="100%"/>
       </div>
      
       <div class="item">
-           <img src="<c:url value="/resources/images/Samsung.jpg"/>" height="100" width="100%"/>
+           <img src="<c:url value="/resources/images/Samsung.jpg"/>" height="80" width="100%"/>
               </div>
       
       <div class="item">
-           <img src="<c:url value="/resources/images/HTC.jpg"/>" height="100" width="100%"/>      
+           <img src="<c:url value="/resources/images/HTC.jpg"/>" height="80" width="100%"/>      
            
            </div>
       
