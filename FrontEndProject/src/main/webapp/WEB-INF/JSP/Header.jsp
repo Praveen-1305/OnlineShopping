@@ -53,7 +53,7 @@ font-size:22px;
     
     <ul class="nav navbar-nav navbar-right">
  <c:if test="${not empty SuccessMessage}">
-  <li><a href="<c:url value="/Cart" />"><i class="fa fa-shopping-cart" >Cart()</i></a></li>
+  <li><br><a href="<c:url value="/Cart" />"><i class="fa fa-shopping-cart" >Cart</i></a></li>Welcome ${name}<br>
    <li><a href="<c:url value="/perform_logout" />"><span class="glyphicon glyphicon-log-out"></span> Sign out</a></li>
  </c:if>    
 	</ul>

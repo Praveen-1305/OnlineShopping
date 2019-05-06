@@ -25,12 +25,12 @@
 <table>
 <tr>
         <td>CategoryID:</td>
-        <td><input id="id" class="form-control" name="Id" value="${categoryInfo.categoryId}"/></td>
+        <td><input id="id" class="form-control" name="Id" value="${categoryInfo.categoryId}" readonly/></td>
     </tr>
     
     <tr>
         <td>CategoryName:</td>
-        <td><input id="Name" class="form-control" name="Name" value="${categoryInfo.categoryName}"/></td>
+        <td><input id="Name" class="form-control" name="Name" value="${categoryInfo.categoryName}" /></td>
     </tr>
     <tr>
         <td>CategoryDesc:</td>

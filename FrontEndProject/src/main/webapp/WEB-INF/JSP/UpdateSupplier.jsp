@@ -24,7 +24,7 @@
 <table>
 <tr>
         <td>SupplierID:</td>
-        <td><input id="id" name="Id" value="${supplierInfo.supplierId}"/></td>
+        <td><input id="id" name="Id" value="${supplierInfo.supplierId}" readonly/></td>
     </tr>
     
     <tr>

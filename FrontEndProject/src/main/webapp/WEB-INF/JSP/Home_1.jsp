@@ -58,7 +58,9 @@ font-size:22px;
     </ul>
      <ul class="nav navbar-nav navbar-right">
       
-      <li><a href="<c:url value="/perform_logout" />"><span class="glyphicon glyphicon-log-in"></span> Sign out</a></li>
+      <li>Welcome ${username}
+      <br><a href="<c:url value="/perform_logout" />"><span class="glyphicon glyphicon-log-in"></span> Sign out</a>
+      </li>
     </ul>
     
   </div>

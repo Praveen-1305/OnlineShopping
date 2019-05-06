@@ -13,17 +13,17 @@
 </head>
 <body>
 <%@ include file="Header.jsp"%>
-Hello ${cart.username}
-<form action="<c:url value="/ICart"/>" method="post">
+
 <div class="container">
 <table class="table table-striped" style="border-width:3px;border-color:black;">
-<tr style="background-color:blue; color:white;font-size:28px;">
+<tr style="background-color:blue; color:white;font-size:25px;">
 <td>Shopping Cart</td>
 </tr>
 
 <c:forEach items="${listCarts}" var="cart">
 <tr>
 <form method="post" action="<c:url value="/updatecart/${cart.cartId}"/>">
+
 <td><img src="<c:url value="/resources/images/${cart.productId}.jpg"/>" width="75px" height="75px"><br>
 <c:if test="${Cart.cartId==cart.cartId}">
 ${alert}
@@ -32,12 +32,10 @@ ${alert}
 <td>${cart.productName}</td>
 <td>${cart.total}</td>
 <td><input name="quantity" id="sel" value="${cart.quantity}"></td>
-<td>
-<button type="submit"class="btn btn-success"><i class="fa fa-refresh fa-spin" style="font-size:20px"></i></button></td>
-<td>
-<button type="submit"class="btn btn-danger"><i class="fa fa-trash"><a href="<c:url value="/deletecart/${cart.cartId}"/>"></button></i></a>
-</td>
+<td><button type="submit"class="btn btn-success">Check Price</button></td>
 </form>
+<td><a href="<c:url value="/deletecart/${cart.cartId}"/>"><button type="submit"class="btn btn-danger">Delete</button></a></td>
+
 </tr>
 </c:forEach>
 <tr>
@@ -45,8 +43,16 @@ ${alert}
 <td>${grandtotal}</td>
 <td></td>
 </tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><a href="<c:url value="/confirm/${cart.cartId}"/>"><button type="submit"class="btn btn-danger">Confirm Order</button></a></td>
 </table>
+
+
 </div>
-</form>
+
 </body>
 </html>

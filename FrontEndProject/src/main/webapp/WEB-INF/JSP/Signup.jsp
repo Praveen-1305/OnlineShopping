@@ -34,6 +34,7 @@ input[type=text], input[type=password] {
 }
 input[type=text]:focus, input[type=password]:focus {
   background-color:white;
+  fo
   outline: none;
 }
 .signup {
@@ -46,7 +47,11 @@ input[type=text]:focus, input[type=password]:focus {
   width: 100%;
   opacity: 0.9;
 }
-
+h5
+{
+text-align:center;
+color:red;
+}
 </style>
 
 </head>
@@ -60,6 +65,9 @@ input[type=text]:focus, input[type=password]:focus {
         
 <h1 align="center">Create an Account</h1>
 <div class="text-center">
+<input type="text"  name="name" placeholder="Name" required="required">
+<h5>${alert}</h5></div>
+<div class="text-center">
 <input type="text" name="username" placeholder="What's your username?"  maxlength="20" pattern="[A-Za-z]+" required="required"/>
 </div>
 <div class="text-center">
@@ -72,17 +80,15 @@ input[type=text]:focus, input[type=password]:focus {
 <input type="text"  name="useremail" placeholder="Email" pattern="[a-z0-9._%+-][$#&*]+@[a-z]+.[a-z]{2,}+" required="required">
 </div>
 <div class="text-center">
-<input type="text"  name="userAddress" placeholder="Address" required="required">
-</div>
-<div class="text-center">
 <input type="submit" class="signup" value="Sign me up!" />
 </div>
 
 <div class="text-center">
 <p>Already have an account? <a href="<c:url value="/login"/>" id="signin_id">Signin</a></p>
 </div>
-</div>
 
+
+</div>
 </div>
 </form>
 </body>

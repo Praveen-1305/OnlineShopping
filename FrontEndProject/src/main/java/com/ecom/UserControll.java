@@ -43,29 +43,41 @@ public class UserControll {
 	
 	@RequestMapping(value="/AddSignup",method=RequestMethod.POST)
     public String addSignUp(@RequestParam("username") String username, @RequestParam("userpassword") String password,
-			@RequestParam("useremail") String email, @RequestParam("usermobile") String mobile,@RequestParam("userAddress")String address, Model m) {
+			@RequestParam("useremail") String email, @RequestParam("usermobile") String mobile,@RequestParam("name")String name, Model m) {
 		
+		boolean flag=false;
+		List<User> listUser=userDAO.getUser();
+		for(User user1:listUser) {
+			if(username.equals(user1.getUsername())) {
+				flag=true;
+				break;
+			}
+		}
+		if(flag==false) {
 		User user=new User();
 		user.setUsername(username);
 		user.setPassword(password);
 		user.setEmail(email);
 		user.setMobileNo(mobile);
-		user.setAddress(address);
+		user.setName(name);
 		
 		userDAO.addUser(user);
         List<User>userl=userDAO.getUser();
         m.addAttribute(userl);
-    	
-	
-	return "login";
-
+        return "login";
+		}
+		else {
+			m.addAttribute("alert","Username is already taken");
+		}
+		
+	return "Signup";
 	}
 
 	@RequestMapping(value="/login_failure")
 	public String invalid(HttpSession Session)
 	{
 		Session.setAttribute("ErrorMessage","Invalid Credentials");
-		return "index";
+		return "login";
 	}
 	
 
@@ -85,9 +97,10 @@ public class UserControll {
 		 System.out.println(authority.getAuthority());
 		
 		 if (authority.getAuthority().equals(role)) 
-	     {
-	    	 session.setAttribute("username",username);
+	     {   
+			 session.setAttribute("username", username);
 			 session.setAttribute("SuccessMessage","Login Successful");
+			 
 	    	 page="Home";
 	    	 
 	    	 
@@ -97,6 +110,8 @@ public class UserControll {
 	     {
 	  
 	    page="Admin";
+	    
+	    session.setAttribute("username","Admin");
 	    session.setAttribute("SuccessMessage","Login Successful");
 	    	 break;
 	    }

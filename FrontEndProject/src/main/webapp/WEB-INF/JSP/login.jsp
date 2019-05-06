@@ -45,7 +45,11 @@ input[type=text]:focus, input[type=password]:focus {
   align: center;
   opacity: 0.9;
 }
-
+h5
+{
+text-align:center;
+color:red;
+}
 
 </style>
 
@@ -65,7 +69,7 @@ input[type=text]:focus, input[type=password]:focus {
 </div>
 <div class="text-center">
 <input type="password" name="password" placeholder="Enter your password" required="required" >
-</div>
+<h5>${ErrorMessage}</h5></div>
 <p>          
 <input type="submit" value="Sign me in!" class="signin"/>
 </p>       

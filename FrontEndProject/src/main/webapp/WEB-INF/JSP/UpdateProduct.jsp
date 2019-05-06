@@ -46,7 +46,7 @@
 		</tr>
 		<tr>
         <td>Product ID:</td>
-        <td><input type="text" class="form-control" name="productId" value="${productInfo.productId}" Required/></td>
+        <td><input type="text" class="form-control" name="productId" value="${productInfo.productId}" readonly/></td>
 		</tr>
 		<tr>
         <td>Product Name:</td>
