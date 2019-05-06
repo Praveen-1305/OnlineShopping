@@ -27,7 +27,7 @@ Stock:${pro.stock}<br>
 </c:when>
 
 <c:otherwise>
-<img src ="<c:url value="/resources/images/${pro.productId}.jpg" />" class="img-thumbnail" style="width:150px; height:170px;" /><br>
+<img src ="<c:url value="/resources/images/${pro.productId}.jpg" />" class="img-thumbnail" style="width:150px; height:170px;" />&nbsp;&nbsp;&nbsp;&nbsp;<br>
 <font color="Red">Out of Stock</font><br><br><br>
 </c:otherwise>
 

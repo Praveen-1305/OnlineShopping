@@ -17,16 +17,22 @@
 <style>
 .container-fluid
 {
-	font-size:15px;
-}
+	
+  background-color:#232F3E;
+  color:#ffffff;
+  font-size:15px;
+  font-color:#ffffff;
+  
+  }
 .navbar-brand
 {
 font-family: "Algerian";
 font-size:22px;
 }
-.background
-{
-   height:auto;
+.body
+{ 
+   height:100%; 
+   width:100%;
    background-image:url("resources/images/Admin.jpg");
    background-repeat: no-repeat;
    background-size: 100%;
@@ -52,7 +58,7 @@ font-size:22px;
     </ul>
      <ul class="nav navbar-nav navbar-right">
       
-      <li><a href="<c:url value="/perform_logout" />"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+      <li><a href="<c:url value="/perform_logout" />"><span class="glyphicon glyphicon-log-in"></span> Sign out</a></li>
     </ul>
     
   </div>

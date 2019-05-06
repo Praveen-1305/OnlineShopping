@@ -13,31 +13,40 @@
 </head>
 <body>
 <%@ include file="Header.jsp"%>
-Hi ${cart.username}
+Hello ${cart.username}
+<form action="<c:url value="/ICart"/>" method="post">
 <div class="container">
-<table class="table table-bordered" style="border-width:3px;border-color:black;">
-<tr style="background-color:black; color:white;">
-<td>Serial No</td>
-<td>Product Name</td>
-<td>Product Price</td>
-<td>Quantity</td>
-<td>Product Image</td>
-<td>Operation</td>
+<table class="table table-striped" style="border-width:3px;border-color:black;">
+<tr style="background-color:blue; color:white;font-size:28px;">
+<td>Shopping Cart</td>
 </tr>
+
 <c:forEach items="${listCarts}" var="cart">
 <tr>
-<td></td>
+<form method="post" action="<c:url value="/updatecart/${cart.cartId}"/>">
+<td><img src="<c:url value="/resources/images/${cart.productId}.jpg"/>" width="75px" height="75px"><br>
+<c:if test="${Cart.cartId==cart.cartId}">
+${alert}
+</c:if>
+</td>
 <td>${cart.productName}</td>
 <td>${cart.total}</td>
-<td>${cart.quantity}</td>
-<td><img src="<c:url value="/resources/images/${pro.productId}.jpg"/>" width="75px" height="75px"></td>
+<td><input name="quantity" id="sel" value="${cart.quantity}"></td>
 <td>
-<a href="<c:url value="/updatecart/${pro.productId}"/>" class="btn btn-success btn-xs">REFRESH</a>
-<a href="<c:url value="/deletecart/${pro.productId}"/>" class="btn btn-danger btn-xs">DELETE</a>
+<button type="submit"class="btn btn-success"><i class="fa fa-refresh fa-spin" style="font-size:20px"></i></button></td>
+<td>
+<button type="submit"class="btn btn-danger"><i class="fa fa-trash"><a href="<c:url value="/deletecart/${cart.cartId}"/>"></button></i></a>
 </td>
+</form>
 </tr>
 </c:forEach>
+<tr>
+<td>GrandTotal<td>
+<td>${grandtotal}</td>
+<td></td>
+</tr>
 </table>
 </div>
+</form>
 </body>
 </html>

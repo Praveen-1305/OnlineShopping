@@ -39,9 +39,9 @@ font-size:22px;
       <a class="navbar-brand" href="#">MobileWell</a>
     </div>
     <ul class="nav navbar-nav">
-    <li><a href="aboutus">About Us</a></li>
-      <li><a href="contactUs">Contact Us</a></li>
-      <li><a href="Dproduct">Product</a></li>
+    <li><a href="<c:url value="/aboutus" />">About Us</a></li>
+      <li><a href="<c:url value="/contactUs" />">Contact Us</a></li>
+      <li><a href="<c:url value="/Dproduct" />">Product</a></li>
     </ul>  
      <ul class="nav navbar-nav navbar-right">
      <c:if test="${empty SuccessMessage}">
@@ -53,8 +53,8 @@ font-size:22px;
     
     <ul class="nav navbar-nav navbar-right">
  <c:if test="${not empty SuccessMessage}">
-  <li><a href="<c:url value="#" />"><i class="fa fa-shopping-cart" >Cart()</i></a></li>
-   <li><a href="<c:url value="/perform_logout" />"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+  <li><a href="<c:url value="/Cart" />"><i class="fa fa-shopping-cart" >Cart()</i></a></li>
+   <li><a href="<c:url value="/perform_logout" />"><span class="glyphicon glyphicon-log-out"></span> Sign out</a></li>
  </c:if>    
 	</ul>
        

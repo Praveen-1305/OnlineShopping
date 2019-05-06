@@ -40,15 +40,17 @@ public class UserControll {
 		return "login";
 	}
 	
+	
 	@RequestMapping(value="/AddSignup",method=RequestMethod.POST)
     public String addSignUp(@RequestParam("username") String username, @RequestParam("userpassword") String password,
-			@RequestParam("useremail") String email, @RequestParam("usermobile") String mobile, Model m) {
+			@RequestParam("useremail") String email, @RequestParam("usermobile") String mobile,@RequestParam("userAddress")String address, Model m) {
 		
 		User user=new User();
 		user.setUsername(username);
 		user.setPassword(password);
 		user.setEmail(email);
 		user.setMobileNo(mobile);
+		user.setAddress(address);
 		
 		userDAO.addUser(user);
         List<User>userl=userDAO.getUser();

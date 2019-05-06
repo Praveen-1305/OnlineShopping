@@ -15,12 +15,37 @@
 <style>
 .container
 {
-width: 360px;
-padding: 10% 0 0;
-margin:auto;
-background-color:grey;
-border:1px solid black;
+max-width:360px;
+background-color:lightgrey;
+margin-top:6%;
+margin-left:50%;
+border:1px solid black";
 }
+input[type=text], input[type=password] {
+  width: 300px;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: black;
+  border-radius: 25px;
+}
+input[type=text]:focus, input[type=password]:focus {
+  background-color:white;
+  outline: none;
+}
+.signin {
+  background-color: #2196f3;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  align: center;
+  opacity: 0.9;
+}
+
 
 </style>
 
@@ -41,11 +66,11 @@ border:1px solid black;
 <div class="text-center">
 <input type="password" name="password" placeholder="Enter your password" required="required" >
 </div>
-<div class="text-center">          
-<input type="submit" value="Sign me in!" class="inputButton"/>
-</div>       
+<p>          
+<input type="submit" value="Sign me in!" class="signin"/>
+</p>       
 <div class="text-center">
-<a href="<c:url value="/signup" />" id="Account">create an account</a>
+<p><a href="<c:url value="/signup" />" id="Account">Create an Account</a></p>
 </div>
     
 </div>

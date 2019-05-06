@@ -17,12 +17,36 @@
 <style>
 .container
 {
-width: 360px;
-padding: 10% 0 0;
-margin:auto;
-background-color:grey;
-border:1px solid black;
+max-width:360px;
+background-color:lightgrey;
+margin-top:6%;
+margin-left:50%;
+border:1px solid black";
 }
+input[type=text], input[type=password] {
+  width: 300px;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: black;
+  border-radius: 25px;
+}
+input[type=text]:focus, input[type=password]:focus {
+  background-color:white;
+  outline: none;
+}
+.signup {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
 </style>
 
 </head>
@@ -39,20 +63,23 @@ border:1px solid black;
 <input type="text" name="username" placeholder="What's your username?"  maxlength="20" pattern="[A-Za-z]+" required="required"/>
 </div>
 <div class="text-center">
-<input type="password" name="userpassword" placeholder="Choose a password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required="required" >
+<input type="password"  name="userpassword" placeholder="Choose a password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required="required" >
 </div>
 <div class="text-center">
-<input type="text" name="usermobile" placeholder="MobileNo" pattern="[0-9]{10}" required="required">
+<input type="text"  name="usermobile" placeholder="MobileNo" pattern="[0-9]{10}" required="required">
 </div>
 <div class="text-center">
-<input type="text" name="useremail" placeholder="Email" pattern="[a-z0-9._%+-][$#&*]+@[a-z]+.[a-z]{2,}+" required="required">
+<input type="text"  name="useremail" placeholder="Email" pattern="[a-z0-9._%+-][$#&*]+@[a-z]+.[a-z]{2,}+" required="required">
 </div>
 <div class="text-center">
-<input type="submit" value="Sign me up!" />
+<input type="text"  name="userAddress" placeholder="Address" required="required">
+</div>
+<div class="text-center">
+<input type="submit" class="signup" value="Sign me up!" />
 </div>
 
 <div class="text-center">
-already have an account? <a href="<c:url value="/login"/>" id="signin_id">Signin</a>
+<p>Already have an account? <a href="<c:url value="/login"/>" id="signin_id">Signin</a></p>
 </div>
 </div>
 
