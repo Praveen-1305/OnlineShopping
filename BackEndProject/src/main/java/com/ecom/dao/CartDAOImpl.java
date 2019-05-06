@@ -41,6 +41,7 @@ public class CartDAOImpl implements CartDAO {
 			try{
 			Session session=sessionFactory.openSession();
 			Cart cart=(Cart)session.get(Cart.class,cartId);
+			session.close();
 			return cart;
 			}
 			
@@ -85,8 +86,8 @@ public class CartDAOImpl implements CartDAO {
 			try
 			{
 				Session session=sessionFactory.openSession();
-			Cart cart=(Cart)session.createQuery("form Cart where username=:username and status=:'NP'");
-				Query query=session.createQuery("from Cart");
+				Query query = session.createQuery("from Cart where Username=:username and paymentStatus='NP'");
+				query.setParameter("username",username);
 				List<Cart> listCart=(List<Cart>)query.list();
 				return listCart;
 			}

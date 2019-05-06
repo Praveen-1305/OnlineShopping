@@ -10,31 +10,24 @@ import javax.persistence.Table;
 public class Cart {
 	@Id
 	@GeneratedValue
-	private int CartId;
-	private int ProductId;
-	private String username;
-	private String productname;
+	private int cartId;
+	private int productId;
 	private double total;
-	private String PaymentStatus;
 	private int quantity;
-	
-	public String getUsername() {
-		return username;
+	private String username;
+	private String productName;
+	private String paymentStatus;
+	public int getCartId() {
+		return cartId;
 	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
-	public String getProductname() {
-		return productname;
-	}
-	public void setProductname(String productname) {
-		this.productname = productname;
+	public void setCartId(int cartId) {
+		this.cartId = cartId;
 	}
 	public int getProductId() {
-		return ProductId;
+		return productId;
 	}
 	public void setProductId(int productId) {
-		ProductId = productId;
+		this.productId = productId;
 	}
 	public double getTotal() {
 		return total;
@@ -42,24 +35,29 @@ public class Cart {
 	public void setTotal(double total) {
 		this.total = total;
 	}
-	public String getPaymentStatus() {
-		return PaymentStatus;
-	}
-	public void setPaymentStatus(String paymentStatus) {
-		PaymentStatus = paymentStatus;
-	}
 	public int getQuantity() {
 		return quantity;
 	}
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	public int getCartId() {
-		return CartId;
+	public String getUsername() {
+		return username;
 	}
-	public void setCartId(int cartId) {
-		CartId = cartId;
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getProductName() {
+		return productName;
+	}
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+	public String getPaymentStatus() {
+		return paymentStatus;
+	}
+	public void setPaymentStatus(String paymentStatus) {
+		this.paymentStatus = paymentStatus;
 	}
 
 }
-	

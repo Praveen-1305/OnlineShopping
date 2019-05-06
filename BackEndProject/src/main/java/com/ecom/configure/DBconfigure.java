@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.ecom.TableStruct.Cart;
 import com.ecom.TableStruct.Category;
+import com.ecom.TableStruct.Order;
 import com.ecom.TableStruct.Product;
 import com.ecom.TableStruct.Supplier;
 import com.ecom.TableStruct.User;
@@ -70,6 +71,7 @@ public SessionFactory getSessionFactory(DataSource dataSource) {
     sessionBuilder.addAnnotatedClasses(Product.class);
     sessionBuilder.addAnnotatedClasses(Cart.class);
     sessionBuilder.addAnnotatedClasses(User.class);
+    sessionBuilder.addAnnotatedClasses(Order.class);
     
 	return sessionBuilder.buildSessionFactory();
 }
@@ -119,6 +121,7 @@ public UserDAO getUserDAO()
 	return new UserDAOImpl();
 
 }
+
 
 
 }

@@ -33,10 +33,11 @@ public class UserTest {
 	{
 		User user=new User();
 		user.setMobileNo("9988664422");
-		user.setPassword("error");
-		user.setUsername("error");
-		user.setRole("ROLE_USER");
-		user.setEmail("error@google.com");
+		user.setPassword("praveen");
+		user.setName("Praveen");
+		user.setUsername("praveen");
+		user.setRole("ROLE_Admin");
+		user.setEmail("Admin@google.com");
 		assertTrue("Problem in User Insertion",userDAO.addUser(user));
 	}
 	@Ignore

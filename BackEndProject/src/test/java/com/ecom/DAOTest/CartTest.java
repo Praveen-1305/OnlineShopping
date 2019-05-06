@@ -3,6 +3,8 @@ package com.ecom.DAOTest;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.util.List;
+
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -24,15 +26,15 @@ static CartDAO cartDAO;
 		
 		cartDAO=(CartDAO)context.getBean("cartDAO");
 	}
-    @Ignore
+	
 	@Test
 	public void addCartTest()
 	{
 		Cart cart=new Cart();
 		cart.setProductId(1);
-		cart.setProductname("Mobile");
+		cart.setProductName("Mobile");
 		cart.setQuantity(1);
-		cart.setUsername("Deepika");
+		cart.setUsername("Name");
 		cart.setPaymentStatus("NP");
 		cart.setTotal(1);
 		assertTrue("Problem in Cart Insertion",cartDAO.addCart(cart));
@@ -52,7 +54,7 @@ static CartDAO cartDAO;
 		Cart cart=cartDAO.getCart(2);
 		assertTrue("Problem in Deletion:",cartDAO.deleteCart(cart));
 	}
-
+	@Ignore
 	@Test
 	public void updateCartTest()
 	{
@@ -61,6 +63,18 @@ static CartDAO cartDAO;
 		assertTrue("Problem in Updation",cartDAO.updateCart(cart));
 	}
 
-	
+	@Test
+	public void listCartTest()
+	{
+		List<Cart> listCarts=cartDAO.getCarts("praveen");
+		assertNotNull("No Cart",listCarts);
+		
+		for(Cart cart:listCarts)
+		{
+			System.out.print(cart.getCartId()+" ");
+			System.out.print(cart.getProductId()+" ");
+			System.out.println(cart.getProductName());
+		}
+	}
 }
 
