@@ -51,7 +51,27 @@ public class OrderControll {
 		}
 		return grandTotal;
 	}
-	
+
+	public double grandTotals(List<Cart> listPaidCarts)
+	{
+
+		double grandTotal1=0,grandTotal=0;
+		try {
+		for(Cart cart: listPaidCarts)
+		{
+			grandTotal1=grandTotal1+cart.getQuantity()*(productDAO.getProduct(cart.getProductId()).getPrice());
+			
+		}
+		int grandTotal2=(int)(grandTotal1*100);
+		grandTotal=(double)grandTotal2/100; 
+		}
+		catch(Exception e) {
+			System.out.println("total error");
+		}
+		
+		return grandTotal;
+	}
+
 	@RequestMapping("/PaymentConfirm")
 	public String PaymentConfirm(@RequestParam("mode") String mode,@RequestParam("ShippingAdress") String Address,HttpSession session)
 	{ 
@@ -84,4 +104,26 @@ public class OrderControll {
 	         return "ThankYou";
 		
 	}
+
+	@RequestMapping("/click")
+	public String ClickBill(HttpSession session,Model m)
+	{
+		String username=(String)session.getAttribute("username");
+		
+		List<OrderDetail> listOrder=orderDetailDAO.getOrders(username);
+		m.addAttribute("listorder");
+		
+		
+		List<Cart> listPaidCarts=cartDAO.paidCarts(username);
+		m.addAttribute("grandtotal",grandTotal(listPaidCarts));	
+		m.addAttribute("cartList", listPaidCarts);
+		
+		return "Receipt";
+		
+	}
+
+
 }
+
+
+

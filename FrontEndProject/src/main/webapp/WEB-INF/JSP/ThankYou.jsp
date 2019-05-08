@@ -25,9 +25,10 @@
 <div class="container">
    <div class="style">
    <span style='font-size:100px;'>&#9989;</span>
-   <h2>Thankyou!!<h2>
-   <h3>Your Mobile is on the way!!<h3>
-   <h4><h4>
+   <h2>Thank you!!</h2>
+   <h3>Your Mobile is on the way!!</h3>
+   <h4></h4>
+   <h5><a href="<c:url value="/click"/>">Click Here</a></h5>
    </div>
 </div>
 <%@ include file="Footer.jsp" %>
