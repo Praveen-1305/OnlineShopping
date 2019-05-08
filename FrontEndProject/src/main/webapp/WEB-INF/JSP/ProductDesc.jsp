@@ -19,7 +19,11 @@
 float:right;
 padding-right:150px;
 }
-
+.text
+{
+text-align:center;
+color:red;
+}
 </style>
 
 </head>
@@ -31,13 +35,14 @@ padding-right:150px;
 
 <tr>
  <td>
-<img src ="<c:url value="/resources/images/${pro.productId}.jpg" />" width="500" height="500" />
+<img src ="<c:url value="/resources/images/${pro.productId}.jpg" />" width="500px" height="500px" />
 </td>
 </tr>
 <div class=side >
 <p style="font-size:25px;font-family:TimesNewRoman;font-style:italic;" >${pro.productName}</p>
 <p style="font-size:23px;font-family:TimesNewRoman;font-weight:Regular;" >${pro.prodDesc}</p>
 <p style="font-size:20px;font-family:TimesNewRoman;font-weight:Bold;" >&#8377; ${pro.price}</p>
+<div class=text>${alert}</div>
 <%-- <p style="font-size:18px;font-family:Arial;font-color:Red;" >${pro.stock}</p>--%>
 <br>
 <button class="btn btn-success" style="font-size:14px"><i class="fa fa-shopping-cart">Add to Cart</i></button>

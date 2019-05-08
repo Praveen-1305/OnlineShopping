@@ -27,6 +27,7 @@ public class CartControll {
 	
 	@RequestMapping(value="/Cart")
 	public String displaycart(HttpSession session,Model m) {
+		
 		String username=(String)session.getAttribute("username");
 		List<Cart> listCarts=cartDAO.getCarts(username);
 		m.addAttribute("listCarts", listCarts);
@@ -36,6 +37,7 @@ public class CartControll {
 
 	@RequestMapping(value = "/MoveCart/{productId}",method = RequestMethod.POST)
 	public String addCart(@PathVariable("productId") int proid,HttpSession session,Model m) {
+		
 		Product product=productDAO.getProduct(proid);
 		m.addAttribute("pro",product);
 		
@@ -77,6 +79,7 @@ public class CartControll {
 
 	@RequestMapping(value="/deletecart/{cartId}")
 	public String deletecart(@PathVariable("cartId") int cartid,HttpSession session,Model m) {
+	
 	String username=(String)session.getAttribute("username");
 	Cart cart=cartDAO.getCart(cartid);
     cartDAO.deleteCart(cart);
@@ -88,22 +91,23 @@ public class CartControll {
 	
 	@RequestMapping(value="/updatecart/{cartId}")
 	public String updatecart(@PathVariable("cartId") int cartid,@RequestParam("quantity") int quantity,HttpSession session,Model m) {
+		
 		String username=(String)session.getAttribute("username");
-	Cart cart=cartDAO.getCart(cartid);
-	Product product=productDAO.getProduct(cart.getProductId());
-	if(quantity>5) {
+	    Cart cart=cartDAO.getCart(cartid);
+        Product product=productDAO.getProduct(cart.getProductId());
+        if(quantity>5) {
 		quantity=5;
 		m.addAttribute("Cart",cart);
 		m.addAttribute("alert","quantity can't be more than 5");
 	}
-	cart.setQuantity(quantity);
-	int quant=(int)((quantity*product.getPrice())*100);
-	double qua=(double)quant/100;
-	cart.setTotal(qua);
-    cartDAO.updateCart(cart);
-    List<Cart> listCarts=cartDAO.getCarts(username);
-	m.addAttribute("listCarts", listCarts);
-	m.addAttribute("grandtotal",grandTotal(listCarts));
+	    cart.setQuantity(quantity);
+	    int quant=(int)((quantity*product.getPrice())*100);
+	    double qua=(double)quant/100;
+	    cart.setTotal(qua);
+        cartDAO.updateCart(cart);
+        List<Cart> listCarts=cartDAO.getCarts(username);
+	    m.addAttribute("listCarts", listCarts);
+	    m.addAttribute("grandtotal",grandTotal(listCarts));
 	
 		return "Cart";
 	}

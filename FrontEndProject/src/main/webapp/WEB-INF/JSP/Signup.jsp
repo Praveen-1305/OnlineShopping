@@ -65,19 +65,19 @@ color:red;
         
 <h1 align="center">Create an Account</h1>
 <div class="text-center">
-<input type="text"  name="name" placeholder="Name" required="required">
+<input type="text"  name="name"  placeholder="Name" maxlength="20" pattern="[A-Za-z]+" title="Use Only Letters" required="required">
 <h5>${alert}</h5></div>
 <div class="text-center">
-<input type="text" name="username" placeholder="What's your username?"  maxlength="20" pattern="[A-Za-z]+" required="required"/>
+<input type="text" name="username"  placeholder="What's your username?"  maxlength="20" pattern="[A-Za-z]+" title="Be Unique" required="required"/>
 </div>
 <div class="text-center">
-<input type="password"  name="userpassword" placeholder="Choose a password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required="required" >
+<input type="password"  name="userpassword"  placeholder="Choose a password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Use this format(Eg:Praveen_123)" required="required" >
 </div>
 <div class="text-center">
-<input type="text"  name="usermobile" placeholder="MobileNo" pattern="[0-9]{10}" required="required">
+<input type="text"  name="usermobile"  placeholder="MobileNo" pattern="[0-9]{10}" title="Use Only Numbers" required="required">
 </div>
 <div class="text-center">
-<input type="text"  name="useremail" placeholder="Email" pattern="[a-z0-9._%+-][$#&*]+@[a-z]+.[a-z]{2,}+" required="required">
+<input type="text"  name="useremail"  placeholder="Email" pattern="[a-z0-9._%+-][$#&*]+@[a-z]+.[a-z]{2,}+" title="use this format(Eg:praveen13@gmail.com)" required="required">
 </div>
 <div class="text-center">
 <input type="submit" class="signup" value="Sign me up!" />

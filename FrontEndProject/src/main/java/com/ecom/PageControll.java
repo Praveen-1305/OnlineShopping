@@ -11,34 +11,23 @@ public class PageControll {
 		return "index";
 	}
 	@RequestMapping("/FrontEndProject")
-	public String show()
+	public String showProject()
 	{
 		return "index";
 	}
 	
-	
-	/*@RequestMapping("/Home")
-	public String showHomePage()
+	@RequestMapping("/contactUs")
+	public String showContatUs()
 	{
-		return "Home";
+		return "Contactus";
 	}
 	
-	@RequestMapping("/header")
-	public String showHeaderPage()
+	@RequestMapping("/aboutus")
+	public String showAboutus()
 	{
-		return "Header";
+		return "Aboutus";
 	}
 	
-	@RequestMapping("/Home_1")
-	public String showHome_1Page()
-	{
-		return "Home_1";
-	}
 	
-	@RequestMapping("/footer")
-	public String showFooterPage()
-	{
-		return "Footer";
-	}*/
-	
+		
 }
