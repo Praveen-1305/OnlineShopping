@@ -26,6 +26,7 @@
 
 <tr>
   <td>Products</td>
+  <td>ProductName</td>
   <td>Quantity</td>
   <td>Sub total</td>
 </tr>
@@ -34,7 +35,7 @@
  
  <tr> 
  <td><img src="<c:url value="/resources/images/${cartItem.productId}.jpg"/>" width="100" height="100"/></td>
- 
+ <td>${cartItem.productName }</td>
  <td>${cartItem.quantity }</td>
  <td>&#8377; ${cartItem.total}</td>
  </tr>

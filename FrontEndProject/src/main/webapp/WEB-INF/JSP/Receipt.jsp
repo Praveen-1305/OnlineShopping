@@ -19,32 +19,33 @@
    <table class="table table-bordered">
   <h3><center>MOBILEWELL</center></h3>
   <h4><center>RECEIPT</center></h4>
-
+   <div align="left">
+     <p>${orderdetail.username}</p>
+    <p>Shipping Address: ${orderdetail.shippingAddr}</p>  
+      </div>
+      <div align="right">
+      <p>${orderdetail.date}</p>
+      </div>
       <tr>
 		<th>ProductName</th>
 		<th>Quantity</th>
 		<th>Price</th>
        </tr>   
       
-      <c:forEach items="${cartList}" var="cartItem">
+      <c:forEach items="${listPaidCarts}" var="cartItem">
       <tr>
          <td>${cartItem.productName }</td>       
          <td>${cartItem.quantity }</td>
         <td>&#8377; ${cartItem.total}</td>  
       </tr>
       </c:forEach>
-      
-    <tr>
+     
+          <tr>
       <td colspan="2">Grand Total</td>
       <td colspan="2">&#8377; ${grandtotal}/-</td>
     </tr>
-    
-    <c:forEach items="${listorder}" var="orderDetail">
-   <tr>
-    <td>${orderDetail.username }</td>
-    <td>Shipping Address: ${orderDetail.shippingAddr}</td>  
-      </tr>
-      </c:forEach>
+     
+      
       </table>
       </div>
 </body>

@@ -28,7 +28,7 @@
    <h2>Thank you!!</h2>
    <h3>Your Mobile is on the way!!</h3>
    <h4></h4>
-   <h5><a href="<c:url value="/click"/>">Click Here</a></h5>
+   <h5><i class="fa fa-mail-forward"><a href="<c:url value="/click"/>">Click Here</a></i></h5>
    </div>
 </div>
 <%@ include file="Footer.jsp" %>

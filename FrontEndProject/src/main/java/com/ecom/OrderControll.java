@@ -84,22 +84,14 @@ public class OrderControll {
 	         Cart2.setPaymentStatus("P");
 	         cartDAO.updateCart(Cart2);
 		}
-		
+	      	List<Cart> listPaidCarts=cartDAO.getCarts(username);
 				OrderDetail orderDetail=new OrderDetail();
 				orderDetail.setTranType(mode);
 				orderDetail.setDate(String.format("%tc",new Date()));
 				orderDetail.setUsername(username);
 				orderDetail.setShippingAddr(Address);
-				double grandTotal=0;
-				for(Cart cartItem: listCartItems)
-				{
-					grandTotal=grandTotal+cartItem.getQuantity()*(productDAO.getProduct(cartItem.getProductId()).getPrice());
-				}
-				orderDetail.setTotalAmount(grandTotal);
-			    orderDetailDAO.confirmOrder(orderDetail);
-		        
-		
-		
+				orderDetail.setTotalAmount(grandTotal(listPaidCarts));
+			    orderDetailDAO.confirmOrder(orderDetail);       	
 		
 	         return "ThankYou";
 		
@@ -109,15 +101,32 @@ public class OrderControll {
 	public String ClickBill(HttpSession session,Model m)
 	{
 		String username=(String)session.getAttribute("username");
-		
-		List<OrderDetail> listOrder=orderDetailDAO.getOrders(username);
-		m.addAttribute("listorder");
-		
-		
+			
 		List<Cart> listPaidCarts=cartDAO.paidCarts(username);
-		m.addAttribute("grandtotal",grandTotal(listPaidCarts));	
-		m.addAttribute("cartList", listPaidCarts);
+		m.addAttribute("listPaidCarts",listPaidCarts);
+		m.addAttribute("grandtotal",grandTotal(listPaidCarts));
 		
+		List<Cart> listpaidCarts=cartDAO.paidCarts(username);
+		
+		for(Cart cart3:listpaidCarts)
+		{
+				Cart cart4=cartDAO.getCart(cart3.getCartId());
+				cart4.setPaymentStatus("Paid");
+				cartDAO.updateCart(cart4);
+		}
+		List<OrderDetail> listOrderDetail=orderDetailDAO.getOrders(username);
+		int id=0;
+		for(OrderDetail orderdetail1:listOrderDetail)
+		{
+				if(orderdetail1.getOrderId()>id) {
+					id=orderdetail1.getOrderId();
+				}
+		}
+		
+	
+		OrderDetail orderdetail2=orderDetailDAO.getOrderId(id); 
+		m.addAttribute("orderdetail",orderdetail2);
+
 		return "Receipt";
 		
 	}

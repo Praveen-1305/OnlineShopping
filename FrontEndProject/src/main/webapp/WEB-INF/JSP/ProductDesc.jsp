@@ -15,10 +15,6 @@
 
 <title>Description</title>
 <style>
-.side{
-float:right;
-padding-right:150px;
-}
 .text
 {
 text-align:center;
@@ -41,16 +37,18 @@ color:red;
 <div class=side >
 <p style="font-size:25px;font-family:TimesNewRoman;font-style:italic;" >${pro.productName}</p>
 <p style="font-size:23px;font-family:TimesNewRoman;font-weight:Regular;" >${pro.prodDesc}</p>
-<p style="font-size:20px;font-family:TimesNewRoman;font-weight:Bold;" >&#8377; ${pro.price}</p>
+<p style="font-size:20px;font-family:TimesNewRoman;font-weight:Bold;" >&#8377; ${pro.price} &nbsp;&nbsp;
+<button class="btn btn-success" style="font-size:14px"><i class="fa fa-shopping-cart">Add to Cart</i></button></p>
 <div class=text>${alert}</div>
 <%-- <p style="font-size:18px;font-family:Arial;font-color:Red;" >${pro.stock}</p>--%>
 <br>
-<button class="btn btn-success" style="font-size:14px"><i class="fa fa-shopping-cart">Add to Cart</i></button>
 </div>
+<br>
 
 </div>
 </div>
 </form>
-<%@include file="Footer.jsp"%>
+
 </body>
+<%@include file="Footer.jsp"%>
 </html>

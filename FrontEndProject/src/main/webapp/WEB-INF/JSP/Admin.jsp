@@ -10,15 +10,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
-<%-- <style>
-.footer
-{
-   position: fixed;
-   left: 0;
-   bottom: 0;
-   width: 100%;
-}
-</style>--%>
+
 
 <title>Administrator</title>
 
@@ -28,11 +20,5 @@
 <div id="Admin">
 
 </div>
-    
-
-<%--<div class="footer">
-<h5>Admin on Process...</h5>
-</div>--%>
-
 </body>
 </html>
