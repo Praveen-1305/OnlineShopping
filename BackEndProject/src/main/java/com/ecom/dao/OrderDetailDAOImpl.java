@@ -42,7 +42,7 @@ public class OrderDetailDAOImpl implements OrderDetailDAO{
 		try
 		{
 			Session session=sessionFactory.openSession();
-			Query query = session.createQuery("from Order where Username=:username");
+			Query query = session.createQuery("from OrderDetail where Username=:username");
 			query.setParameter("username",username);
 			List<OrderDetail> Orderlist=(List<OrderDetail>)query.list();
 			return Orderlist;
