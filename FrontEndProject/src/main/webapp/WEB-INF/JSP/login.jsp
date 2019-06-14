@@ -54,7 +54,7 @@ color:red;
 </style>
 
 </head>
-<body>
+<body style="background-color:#F0FFFF;">
 
 
 <form action="<c:url value="/perform_login"/>" method="post">

@@ -16,13 +16,16 @@
 </head>
 <body>
 <%@include file="Admin.jsp"%>
-<h2 align="center">Supplier Page</h2>
 <form action="<c:url value="/InsertSupplier"/>" method="POST" >
 <div class="container">
 	<div class="row" style="padding-left:275px">
-	<div class="col-sm-10 col-md-6 col-lg-4">
+	
 	<div class="box">
 <table>
+<tr><td></td>
+		<td><h3 align="center">Supplier Page</h3></td>
+		</tr>
+    
     <tr>
         <td>SupplierName:</td>
         <td><input id="Name" class="form-control" name="Name"/></td>
@@ -31,16 +34,17 @@
         <td>SupplierAddress:</td>
         <td><input id="Addr" class="form-control" name="Addr"/></td>
     </tr>
-    <tr>
-        </table><br>
-		<center>
-		<button type="submit" class="btn btn-success">Update</button>
+ <tr><td></td>
+	<td>	
+		<button type="submit" class="btn btn-success">Add</button>
 		<button type="reset" class="btn btn-danger">Reset</button>
-	  </center>
+		</td>
+	</tr>
+	</table>
 	  </div>
 	</div>
 </div>
-</div><br>
+<br>
  <table border=2 width=100%>	   
 		   <tr>
 		<th>Supplier ID</th>

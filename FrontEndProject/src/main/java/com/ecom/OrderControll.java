@@ -73,7 +73,7 @@ public class OrderControll {
 	}
 
 	@RequestMapping("/PaymentConfirm")
-	public String PaymentConfirm(@RequestParam("mode") String mode,@RequestParam("ShippingAdress") String Address,HttpSession session)
+	public String PaymentConfirm(@RequestParam("radios") String mode,@RequestParam("ShippingAdress") String Address,HttpSession session)
 	{ 
 		String username=(String)session.getAttribute("username");
 		List<Cart> listCartItems=cartDAO.getCarts(username);
@@ -130,8 +130,40 @@ public class OrderControll {
 		return "Receipt";
 		
 	}
-
-
+	@RequestMapping("/credit")
+	public String showCredit()
+	{
+		return "Credit";
+	}
+	@RequestMapping("/CreditConfirm")
+	public String showCredit(HttpSession session,Model m)
+	{   
+		
+		String username=(String)session.getAttribute("username");
+		List<Cart> listCartItems=cartDAO.getCarts(username);
+		m.addAttribute("cartList",listCartItems);
+		m.addAttribute("grandtotal",this.grandTotal(listCartItems));
+		//m.addAttribute("Paymentmethod","Credit/Debit");
+			return "OrderR";
+	}
+	
+	@RequestMapping("/online")
+	public String showOnline()
+	{
+		return "Netbanking";
+	}
+	@RequestMapping("/OnlineConfirm")
+	public String showOnline(HttpSession session,Model m)
+	{   
+		
+		String username=(String)session.getAttribute("username");
+		List<Cart> listCartItems=cartDAO.getCarts(username);
+		m.addAttribute("cartList",listCartItems);
+		m.addAttribute("grandtotal",this.grandTotal(listCartItems));
+		//m.addAttribute("Paymentmethod","Net Banking");
+			return "OrderR";
+	}
+	
 }
 
 

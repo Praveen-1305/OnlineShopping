@@ -90,6 +90,14 @@ public class UserControll {
 		@SuppressWarnings("unchecked")
 		Collection<GrantedAuthority> authorities = (Collection<GrantedAuthority>) SecurityContextHolder.getContext().getAuthentication().getAuthorities();
 		String page="";
+		String nameuser="";
+		List<User> listUser=userDAO.getUser();
+		for(User user1:listUser) {
+			if(username.equals(user1.getUsername())) {
+				nameuser=user1.getName();
+			}
+	}
+	
 		
 		String role="ROLE_USER";
 		for (GrantedAuthority authority:authorities) 
@@ -99,6 +107,7 @@ public class UserControll {
 		 if (authority.getAuthority().equals(role)) 
 	     {   
 			 session.setAttribute("username", username);
+			 session.setAttribute("nameuser", nameuser);
 			 session.setAttribute("SuccessMessage","Login Successful");
 			 
 	    	 page="Home";
@@ -111,7 +120,8 @@ public class UserControll {
 	  
 	    page="Admin";
 	    
-	    session.setAttribute("username","Admin");
+	   // session.setAttribute("username","Admin");
+	    session.setAttribute("nameuser","Admin");
 	    session.setAttribute("SuccessMessage","Login Successful");
 	    	 break;
 	    }

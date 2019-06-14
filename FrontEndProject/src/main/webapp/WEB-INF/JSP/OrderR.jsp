@@ -13,19 +13,8 @@
 
 <title>YourOrder</title>
 
-
-
-
-
 </head>
 <body>
-
-
-
-
-
-
-
 <%@include file="Header.jsp"%>
 
 
@@ -64,33 +53,16 @@
 <form name=form action="<c:url value="/PaymentConfirm"/>" method="get">
 
   <tr>
-    <td>Payment Mode:</td>
+    <td>Confirmation Mode:</td>
     <td><br>
-    
-   
-<script>
-function openPage(){
-var selection = document.form.radios;
-
-for (i=0; i<selection.length; i++)
-
-  if (selection[i].checked == true)
-  if(selection[i].value=="card"){
-  window.location.replace("<c:url value="/credit"/>");
-  }
-  else if(selection[i].value=="online"){
-  window.location.replace("<c:url value="/online"/>");
-  }
-  
-}
-</script>
-  
+    <%--   ${Paymentmethod}  --%>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-    <input type="radio" name="radios" value="card" onclick="openPage()" required/>Credit/Debit<br>
+    <input type="radio" name="radios" value="card" required/>Credit/Debit<br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="radio" name="radios" value="online" onclick="openPage();" required/>Net Banking<br>
+    <input type="radio" name="radios" value="online" required />Net Banking<br>
+    
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="radio" name="radios" value="cash" onclick="openPage();" required/>Cash On Delivery       
+    <input type="radio" name="radios" value="cash" required/>Cash On Delivery     
         
      
     </td>
@@ -99,7 +71,8 @@ for (i=0; i<selection.length; i++)
     <td>Shipping Address:</td> 
     <td><textarea name="ShippingAdress" title="You need to fill for delivery" style="width:35%;color:black;" required></textarea></td>
     </tr><br>  
-</table> <br> 
+</table>  
+ 
   <div align="center">
     <button type="submit"class="btn btn-success" >PROCEED TO PAY</button>
     

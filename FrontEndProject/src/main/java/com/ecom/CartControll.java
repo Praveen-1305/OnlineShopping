@@ -30,7 +30,12 @@ public class CartControll {
 		
 		String username=(String)session.getAttribute("username");
 		List<Cart> listCarts=cartDAO.getCarts(username);
+		int quantity=0;
+		for(Cart cart1: listCarts) {
+			quantity+=cart1.getQuantity();
+		}
 		m.addAttribute("listCarts", listCarts);
+		m.addAttribute("quantity", quantity);
 		m.addAttribute("grandtotal",grandTotal(listCarts));
 		return "Cart";
 	}
@@ -65,8 +70,10 @@ public class CartControll {
 		cart.setPaymentStatus("NP");
 		cart.setTotal(product.getPrice());
 		cartDAO.addCart(cart);
-		m.addAttribute("listCarts", listCarts);
-		m.addAttribute("grandtotal",grandTotal(listCarts));
+		List<Cart> listCarts1=cartDAO.getCarts(username);
+		m.addAttribute("listCarts", listCarts1);
+		m.addAttribute("grandtotal",grandTotal(listCarts1));
+		m.addAttribute("alert","This product is added to cart");
 		return "Cart";
 		}
 		else {
@@ -84,7 +91,12 @@ public class CartControll {
 	Cart cart=cartDAO.getCart(cartid);
     cartDAO.deleteCart(cart);
     List<Cart> listCarts=cartDAO.getCarts(username);
-	m.addAttribute("listCarts", listCarts);
+    int quantity=0;
+	for(Cart cart1: listCarts) {
+		quantity+=cart1.getQuantity();
+	}
+    m.addAttribute("listCarts", listCarts);
+    m.addAttribute("quantity", quantity);
 	m.addAttribute("grandtotal",grandTotal(listCarts));
 		return "Cart";
 	}

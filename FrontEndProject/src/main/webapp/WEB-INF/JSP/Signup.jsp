@@ -34,7 +34,6 @@ input[type=text], input[type=password] {
 }
 input[type=text]:focus, input[type=password]:focus {
   background-color:white;
-  fo
   outline: none;
 }
 .signup {
@@ -55,7 +54,7 @@ color:red;
 </style>
 
 </head>
-<body >
+<body style="background-color:#F0FFFF;">
 
 
 
@@ -65,7 +64,7 @@ color:red;
         
 <h1 align="center">Create an Account</h1>
 <div class="text-center">
-<input type="text"  name="name"  placeholder="Name" maxlength="20" pattern="[A-Za-z]+" title="Use Only Letters" required="required">
+<input type="text"  name="name"  placeholder="Name" maxlength="20" pattern="[A-Za-z]+" title="Use Single Word" required="required">
 <h5>${alert}</h5></div>
 <div class="text-center">
 <input type="text" name="username"  placeholder="What's your username?"  maxlength="20" pattern="[A-Za-z]+" title="Be Unique" required="required"/>

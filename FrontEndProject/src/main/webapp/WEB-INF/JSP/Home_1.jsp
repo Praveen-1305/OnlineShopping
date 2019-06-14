@@ -49,8 +49,8 @@ font-size:22px;
       <a class="navbar-brand" href="#">MobileWell</a>
     </div>
     <ul class="nav navbar-nav">
-      <%--<li class="active"></li>--%>
-      <li><a href="<c:url value="/"/>">Home</a></li>
+      <%--<li class="active"></li>
+      <li><a href="<c:url value="#"/>">Home</a></li>--%>
       <li><a href="<c:url value="/Category"/>">ManageCategory</a></li>
       <li><a href="<c:url value="/Iproduct"/>">ManageProduct</a></li>
       <li><a href="<c:url value="/Supplier"/>">ManageSupplier</a></li>
@@ -58,7 +58,7 @@ font-size:22px;
     </ul>
      <ul class="nav navbar-nav navbar-right">
       
-      <li>Welcome ${username}
+      <li>Welcome ${nameuser}
       <br><a href="<c:url value="/perform_logout" />"><span class="glyphicon glyphicon-log-in"></span> Sign out</a>
       </li>
     </ul>

@@ -6,10 +6,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstarp.min.js"></script>
-<title>Cart</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><title>Cart</title>
+<style>
+.style
+{
+   text-align: center;
+   position: relative;
+   top: 20%;
+}
+
+</style>
 </head>
 <body>
 <%@ include file="Header.jsp"%>
@@ -19,6 +28,17 @@
 Shopping Cart
 </div>
 <table class="table table-striped" style="border-width:3px;border-color:black;">
+<c:choose>
+<c:when test="${quantity==0}">
+<div class="style">
+<h2>Your Cart is Empty!!</h2>
+<div style="font-size: 50px;">
+<p align="center"><i class="fa fa-shopping-cart fa-10x"></i></p>
+</div>
+<p><a href="<c:url value="/Dproduct"/>"><button type="submit"class="btn btn-success">Goto Shopping</button></a></p>
+</div>
+</c:when>
+<c:otherwise>
 
 <c:forEach items="${listCarts}" var="cart">
 <tr>
@@ -31,13 +51,6 @@ ${alert}
 <td>${cart.productName}</td>
 <td>&#8377; ${cart.total}</td>
 
-<%--<td><select name="quantity">
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    </select>
-  </td>--%>
- 
  <td><input name="quantity" id="sel" value="${cart.quantity}"></td>
 <td><button type="submit"class="btn btn-success">Check Price</button></td>
 </form>
@@ -51,13 +64,18 @@ ${alert}
 <td></td>
 </tr>
 <tr>
+
+
 <td><a href="<c:url value="/Dproduct"/>"><button type="submit"class="btn btn-success">Continue Shopping</button></a></td>
 <td></td>
 <td></td>
 <td></td>
 <td><a href="<c:url value="/confirm"/>"><button type="submit"class="btn btn-danger">Confirm Order</button></a></td>
-</table>
 
+</c:otherwise>
+</c:choose>
+
+</table>
 
 </div>
 <%@ include file="Footer.jsp"%>

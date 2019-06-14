@@ -12,18 +12,21 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
 
-<title>ProductInsertion</title>	
+<title>ProductUpdation</title>	
 </head>
 <body>
 <%@include file="Admin.jsp"%>
 
-<h3 align="center">UpdateProduct</h3>
+
 <form action="<c:url value="/UpdateProductDB"/>" method="post" enctype="multipart/form-data">
 	<div class="container">
 	<div class="row" style="padding-left:210px">
-	<div class="col-sm-10 col-md-6 col-lg-4">
+	
 	<div class="box">
 		<table>
+		<tr>
+		<td></td>
+		<td><h3 align="center">Update Product</h3></td>
 		<tr>
 		<td>Select Category: </td>
 		<td>
@@ -71,15 +74,18 @@
 		<td><input type="file"  accept="/resources/images/*" name="pImage" enctype="multipart/form-data"/>
 		</td>
 		</tr>
-		</table><br>
-		<center>
+		
+	<tr><td></td>
+	<td>	
 		<button type="submit" class="btn btn-success">Update</button>
 		<button type="reset" class="btn btn-danger">Reset</button>
-	  </center>
+		</td>
+	</tr>
+	  </table>
 	  </div>
 	</div>
 </div>
-</div><br>	
+<br>	
 <table border=2 width=100%>
 	  <center> <tr>
 		<th>Product ID</th>

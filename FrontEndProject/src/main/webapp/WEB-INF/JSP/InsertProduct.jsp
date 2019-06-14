@@ -18,13 +18,16 @@
 <body>
 <%@include file="Admin.jsp"%>
 
-<h3 align="center">Product Page</h3>
+
 <form action="<c:url value="/AddProduct"/>" method="post" enctype="multipart/form-data">
 	<div class="container">
 	<div class="row" style="padding-left:210px">
-	<div class="col-sm-10 col-md-6 col-lg-4">
-	<div class="box">
+	
+
 		<table class=box>
+		<tr><td></td>
+		<td><h3 align="center">Product Page</h3></td>
+		</tr>
 		<tr>
 		<td>Select Category: </td>
 		<td>
@@ -60,7 +63,7 @@
 		</tr>
 		<tr>
 		<td>Product Price:</td> 
-		<td><input type="text" class="form-control" name="proprice" Required/></td>
+		<td><input type="text" class="form-control" name="proprice" pattern="(1-9[0]){5}+" Required/></td>
 		</tr>
 								
 		<tr>
@@ -68,15 +71,19 @@
 		<td><input type="file"  class="form-control" accept="/resources/images/*" name="pImage" />
 		</td>
 		</tr>
-		</table><br>
-		<center>
+		
+	<tr><td></td>
+	<td>	
 		<button type="submit" class="btn btn-success">Add</button>
 		<button type="reset" class="btn btn-danger">Reset</button>
-	  </center>
+		</td>
+	</tr>
+	  </table>
+	
 	  </div>
 	</div>
-</div>
-</div>
+
+
 <br>	
 <table border=2 width=100%>
 	<tr>

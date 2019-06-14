@@ -15,14 +15,16 @@
 </head>
 <body>
 <%@include file="Admin.jsp"%>
-<h2 align="center">UpdateSupplier</h2>
+
 <form action="<c:url value="/UpdateSupplier"/>" method="POST" >
 <div class="container">
 	<div class="row" style="padding-left:275px">
-	<div class="col-sm-10 col-md-6 col-lg-4">
+	
 	<div class="box">
 <table>
-<tr>
+<tr><td></td>
+		<td><h3 align="center">Update Supplier</h3></td>
+		</tr><tr>
         <td>SupplierID:</td>
         <td><input id="id" name="Id" value="${supplierInfo.supplierId}" readonly/></td>
     </tr>
@@ -35,16 +37,16 @@
         <td>SupplierAddress:</td>
         <td><input id="Addr" name="Addr" value="${supplierInfo.supplierAddress}"/></td>
     </tr>
-    <tr>
-        </table><br>
-		<center>
+    <tr><td></td>
+	<td>	
 		<button type="submit" class="btn btn-success">Update</button>
 		<button type="reset" class="btn btn-danger">Reset</button>
-	  </center>
-	  </div>
+		</td>
+	</tr>
+	</table>  </div>
 	</div>
 </div>
-</div><br>
+<br>
  <table border=2 width=100%>
 	   <tr>
 		<th>Supplier ID</th>
